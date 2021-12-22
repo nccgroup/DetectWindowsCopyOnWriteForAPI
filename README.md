@@ -52,6 +52,6 @@ The below is an example where we have patched the ETWPrint function
 ```
 x64\Release>d-cow.exe
 [i] Running..
-[i] [11960][Calculator.exe] ETWrite is located in NONE shared memory - indication of copy of write
+[i] [11960][Calculator.exe] EtwEventWrite is located in NONE shared memory - indication of copy of write
 ```
 
