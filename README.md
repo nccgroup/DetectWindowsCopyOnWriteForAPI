@@ -55,6 +55,12 @@ x64\Release>d-cow.exe
 [i] [11960][Calculator.exe] EtwEventWrite is located in NONE shared memory - indication of copy of write
 ```
 
+Prior work
+-------------
+thanks for Peter Winter-Smith for pointing out this technique is implemented in Moneta by Forrest Orr
+
+https://github.com/forrest-orr/moneta/blob/master/Source/Subregions.cpp
+
 Offesnive tradecraft we detect
 -------------
 * https://www.mdsec.co.uk/2020/03/hiding-your-net-etw/
