@@ -30,19 +30,20 @@ Due to this bahaviour we can:
 * Use QueryWorkingSetEx to check the page is shared OR not
 * If not then it is an indication a patch has occurred
 
+This should be a performant way to detect any memory patches to the .text section of DLLs.
 
 Compatibility
 -------------
-Only Windows 10/11 is supported / tested
+Only Windows 10/11 tested
 
 What it does
 -------------
 Simply:
+* GetProcAddress of EtwEventWrite
 * Open processes
-* Search for the address of EtwEventWrite
+* Validate that NTDLL.dll is loaded and that EtwEventWrite is within the .text segement
 * Use QueryWorkingSetEx to check the page is shared OR not
-* If not then it is an indication a patch has occurred
-
+* If not then it is an indication a patch has occurred and alert
 
 Running
 -------------
@@ -55,3 +56,9 @@ x64\Release>d-cow.exe
 [i] [11960][Calculator.exe] EtwEventWrite is located in NONE shared memory - indication of copy of write
 ```
 
+Offesnive tradecraft we detect
+-------------
+* https://www.mdsec.co.uk/2020/03/hiding-your-net-etw/
+* https://github.com/outflanknl/TamperETW
+* https://github.com/ajpc500/BOFs/blob/main/ETW/etw.c
+* https://github.com/boku7/injectEtwBypass
