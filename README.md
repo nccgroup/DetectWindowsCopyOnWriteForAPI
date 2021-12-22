@@ -38,7 +38,6 @@ Only Windows 10/11 tested
 
 What it does
 -------------
-Simply:
 * GetProcAddress of EtwEventWrite
 * Open processes
 * Validate that NTDLL.dll is loaded and that EtwEventWrite is within the .text segement
