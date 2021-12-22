@@ -17,7 +17,7 @@ TBC
 
 Hypothesis
 -------------
-By default Microsoft will back copies of the same DLL against the same physical memory to save space. When a patch occurs a copy on write operation will happen.
+By default Microsoft Windows will back copies of the same DLL against the same physical memory to save space. When a patch occurs a copy on write operation will happen.
 
 From the Microsoft documentation:
 https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualquery
