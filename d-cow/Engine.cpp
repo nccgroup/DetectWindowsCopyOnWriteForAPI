@@ -225,7 +225,7 @@ void AnalyzeProc(DWORD dwPID)
 							if (QueryWorkingSetEx(hProcess, &info, sizeof(info)) == TRUE) {
 
 								//fwprintf(stdout, _TEXT("[i] [%d][%s] %x)\n"), dwPID, cProcess,info.VirtualAttributes);
-								if (info.VirtualAttributes.Shared == 0) fwprintf(stdout, _TEXT("[i] [%d][%s] ETWrite is located in NONE shared memory - indication of copy of write\n"), dwPID, cProcess);
+								if (info.VirtualAttributes.Shared == 0) fwprintf(stdout, _TEXT("[i] [%d][%s] EtwEventWrite is located in NONE shared memory - indication of copy of write\n"), dwPID, cProcess);
 							}
 							else
 							{
