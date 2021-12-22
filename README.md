@@ -26,7 +26,7 @@ https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtua
 
 Due to this bahaviour we can:
 * Open processes
-* Search for the address of ETWPrint
+* Search for the address of EtwEventWrite
 * Use QueryWorkingSetEx to check the page is shared OR not
 * If not then it is an indication a patch has occurred
 
@@ -39,7 +39,7 @@ What it does
 -------------
 Simply:
 * Open processes
-* Search for the address of ETWPrint
+* Search for the address of EtwEventWrite
 * Use QueryWorkingSetEx to check the page is shared OR not
 * If not then it is an indication a patch has occurred
 
@@ -47,7 +47,7 @@ Simply:
 Running
 -------------
 
-The below is an example where we have patched the ETWPrint function
+The below is an example where we have patched the EtwEventWrite function
 
 ```
 x64\Release>d-cow.exe
