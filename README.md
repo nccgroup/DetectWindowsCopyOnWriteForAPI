@@ -8,7 +8,7 @@ The purpose of these tools are to show how to enumerate properties for Windows p
 Tools
 -------------
 * d-cow - Windows Copy on Write Detector for shared Windows APIs (e.g. EtwEventWrite) to detect in memory patching
-* d-crtiicalsections - Enumerates how many critical sections a Windows process has
+* d-criticalsections - Enumerates how many critical sections a Windows process has
 * d-dr-registers - Enumerates processes which have debug registers set indicating hardware breakpoints
 * d-peb-dll-loadrason - Enumerates the reason and the date/time stamp along with a delta from the main binary for DLL loading
 * d-teb - Enumerate threads which are impersonating other users
