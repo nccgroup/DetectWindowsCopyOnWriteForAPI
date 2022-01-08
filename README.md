@@ -1,4 +1,4 @@
-Collection of Windows Process Property Enumeration Tools for Threat Hunting
+Windows Process Property Enumeration Tools for Threat Hunting
 ======================
 
 Background
