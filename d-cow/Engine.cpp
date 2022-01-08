@@ -16,7 +16,7 @@ Released under AGPL see LICENSE for more information
 
 // Globals
 TCHAR	strErrMsg[1024];
-DWORD	dwModuleRelocs = 0;
+DWORD	dwModuleRelocs = 0; 
 void*	eventWrite = GetProcAddress(LoadLibraryA("ntdll"), "EtwEventWrite");
 DWORD	dwCountError = 0;
 DWORD	dwCountOK = 0;
