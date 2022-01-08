@@ -3,7 +3,7 @@ Collection of Windows Process Property Enumeration Tools for Threat Hunting
 
 Background
 -------------
-What started out as one tool became many.
+The purpose of these tools are to show how to enumerate properties for Windows process which support the detection of various bits of process injection tradecraft used by threat actors.
 
 Tools
 -------------
