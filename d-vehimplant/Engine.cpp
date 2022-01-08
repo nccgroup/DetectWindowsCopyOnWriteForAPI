@@ -273,7 +273,7 @@ ULONGLONG GetVEHOffset() {
 	ULONGLONG procAddress = (ULONGLONG)GetProcAddress(ntdll, "RtlRemoveVectoredExceptionHandler");
 	BYTE* Buffer = (BYTE*)(GetProcAddress(ntdll, "RtlRemoveVectoredExceptionHandler"));
 
-	fwprintf(stdout, _TEXT("[i] RtlRemoveVectoredExceptionHandler [%llx]\n"), (procAddress));
+	//fwprintf(stdout, _TEXT("[i] RtlRemoveVectoredExceptionHandler [%llx]\n"), (procAddress));
 
 
 	DWORD dwCount = 0;
@@ -287,7 +287,7 @@ ULONGLONG GetVEHOffset() {
 	}
 
 	// ptr return by GetProcAddress + the seek until our pattern + the instruction to load the RVA
-	fwprintf(stdout, _TEXT("[i] LdrpVectorHandlerList [%llx]\n"), ((LONGLONG)Buffer + dwCount + 7 + dwOffset));
+	//fwprintf(stdout, _TEXT("[i] LdrpVectorHandlerList [%llx]\n"), ((LONGLONG)Buffer + dwCount + 7 + dwOffset));
 	
 	return ((LONGLONG)Buffer + dwCount + 7 + dwOffset);
 }
