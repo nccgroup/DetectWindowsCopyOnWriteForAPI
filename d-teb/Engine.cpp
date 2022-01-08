@@ -92,7 +92,7 @@ void AnalyzeTEB(HANDLE hProcess, HANDLE hThread, DWORD dwPID, TCHAR *cProcess, L
 		if(myTEB.IsImpersonating > 0 ) fwprintf(stdout, _TEXT("[i] [%d][%s] is impersonating\n"), dwPID, cProcess);
 
 		if(myTEB.RtlExceptionAttached == 1) fwprintf(stdout, _TEXT("[i] [%d][%s] cloned\n"), dwPID, cProcess);
-
+		/*
 		//fwprintf(stdout, _TEXT("[i] [%d][%s] %llx %llx - Size %d\n"), dwPID, cProcess,myTEB.NtTib.StackBase, myTEB.NtTib.StackLimit, ((LONGLONG)myTEB.NtTib.StackBase- (LONGLONG)myTEB.NtTib.StackLimit));
 		LONGLONG dwSSize = (LONGLONG)myTEB.NtTib.StackBase - (LONGLONG)myTEB.NtTib.StackLimit;
 		FLOAT dwFoo = dwSSize / 1024;
@@ -109,7 +109,7 @@ void AnalyzeTEB(HANDLE hProcess, HANDLE hThread, DWORD dwPID, TCHAR *cProcess, L
 		if (dwSSize < 1000) {
 			fwprintf(stdout, _TEXT("[i] [%d][%s] Alert\n"), dwPID, cProcess);
 		}
-		
+		*/
 		
 	}
 
@@ -215,11 +215,13 @@ void AnalyzeProc(DWORD dwPID)
 							fwprintf(stdout, _TEXT("[!] [%d][%s] Failed to get TBI %d\n"), dwPID, cProcess,(DWORD)statRes);
 						}
 
+						/*
 						PVOID startAddress = 0;
 						statRes = myNtQueryInformationThread(hThread, (THREADINFOCLASS)(9), &startAddress, sizeof(startAddress), NULL);
 						if (statRes == 0) {
 							fwprintf(stdout, _TEXT("[i] [%d][%s] Start Address of Thread %llx\n"), dwPID, cProcess, startAddress);
 						}
+						*/
 
 						CloseHandle(hThread);
 					}

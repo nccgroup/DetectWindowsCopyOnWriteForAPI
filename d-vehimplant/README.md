@@ -1,8 +1,8 @@
-Vectored Exception Handler Enumerator
+Vectored Exception Handler Enumerator for Windows
 ======================
 This will enumerate which Vectored Exception Handlers are present for a process and which module they point to.
 
-This is known to work in Windows 10 x64, the key function which is fragile is the VEH linked list enumerator. This uses a heuristic to do so and thus may break if NTDLL changes matterialy
+This is known to work in Windows 10 x64, the key function which is fragile is the VEH linked list enumerator. This uses a heuristic to do so and thus may break if NTDLL changes materialy
 ```
 ULONGLONG GetVEHOffset() {
 	HMODULE ntdll = LoadLibraryA("ntdll.dll");
