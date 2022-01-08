@@ -2,8 +2,7 @@ DLL Load Reason and Date/Time Stamp for Windows
 ======================
 Enumerates which DLLs are loaded in a process, the reason for the load, when it happened and the delta of the load from process creation. This will help identify anomalous libraries which have been loaded due to code injection. 
 
-Example of it running
-
+Example of it running:
 
 ```
 [i] Running..

@@ -1,6 +1,6 @@
 Vectored Exception Handler Enumerator for Windows
 ======================
-This will enumerate which Vectored Exception Handlers are present for a process and which module they point to.
+This will enumerate which Vectored Exception Handlers are present for a process and which module they point to. This will help detect where VEH is used to do function hooking to avoid copy on write detection (d-cow). This tool (d-vehimplant) is complemented by d-dr-registers to detect the other half of the technique.
 
 This is known to work in Windows 10 x64, the key function which is fragile is the VEH linked list enumerator. This uses a heuristic to do so and thus may break if NTDLL changes materialy
 ```
