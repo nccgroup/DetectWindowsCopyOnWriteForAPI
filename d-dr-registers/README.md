@@ -1,6 +1,6 @@
 Hardware Debug Register Enumerator for Windows 
 ======================
-Enumerates which threads have hardware debug registers set. This will help detect where VEH is used to do function hooking to avoid copy on write detection (d-cow). This tool (d-dr-registers) is complemented by d-vehimplant to detect the other half of the technique. 
+Enumerates which threads have hardware debug registers set. This will help detect where VEHs are being used to do function hooking to avoid copy on write detection (d-cow). This tool (d-dr-registers) is complemented by d-vehimplant to detect the other half of the technique. 
 
 Example of it running
 

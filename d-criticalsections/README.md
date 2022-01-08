@@ -1,6 +1,6 @@
 Critical Section Count Enumerator for Windows
 ======================
-Enumerates how many critical sections as process has. This will help detect processes which have had an implant injected causing a significant variance in the total number of expected Critical Sections. 
+Enumerates how many critical sections a process has. This will help detect processes which have had an implant injected causing a significant variance in the total number of expected Critical Sections. 
 
 Example of it running
 

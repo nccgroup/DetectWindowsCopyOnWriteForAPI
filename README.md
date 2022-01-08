@@ -3,7 +3,7 @@ Collection of Windows Process Property Enumeration Tools for Threat Hunting
 
 Background
 -------------
-The purpose of these tools is show how to enumerate aspects of Windows processes supporting the detection of process injection tradecraft used by threat actors.
+The purpose of these tools is to enumerate aspects of Windows processes that support the detection of process injection tradecraft used by threat actors.
 
 Tools
 -------------

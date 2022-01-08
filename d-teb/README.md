@@ -1,6 +1,6 @@
 Impersonating Thread Enumerator for Windows
 ======================
-Enumerates which threads are impersonating on Windows. This will help detect when a threat actor has injected code into another process and is doing impersonation from it. 
+Enumerates which threads are impersonating on Windows. This will help detect where a threat actor has injected code into another process and is doing impersonation from it. 
 
 Example of it running
 
