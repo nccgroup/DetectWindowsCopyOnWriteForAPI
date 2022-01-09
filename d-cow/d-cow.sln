@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "d-peb-dll-loadreason", "..\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "d-criticalsections", "..\d-criticalsections\d-criticalsections.vcxproj", "{D1A58B2C-92B6-495B-8D1A-CB29A7622007}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "d-nonmodulecallstack", "..\d-nonmodulecallstack\d-nonmodulecallstack.vcxproj", "{68C896B3-E485-454B-B270-3D026161A0A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +111,16 @@ Global
 		{D1A58B2C-92B6-495B-8D1A-CB29A7622007}.Release|x64.Build.0 = Release|x64
 		{D1A58B2C-92B6-495B-8D1A-CB29A7622007}.Release|x86.ActiveCfg = Release|Win32
 		{D1A58B2C-92B6-495B-8D1A-CB29A7622007}.Release|x86.Build.0 = Release|Win32
+		{68C896B3-E485-454B-B270-3D026161A0A1}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{68C896B3-E485-454B-B270-3D026161A0A1}.Debug|x64.ActiveCfg = Debug|x64
+		{68C896B3-E485-454B-B270-3D026161A0A1}.Debug|x64.Build.0 = Debug|x64
+		{68C896B3-E485-454B-B270-3D026161A0A1}.Debug|x86.ActiveCfg = Debug|Win32
+		{68C896B3-E485-454B-B270-3D026161A0A1}.Debug|x86.Build.0 = Debug|Win32
+		{68C896B3-E485-454B-B270-3D026161A0A1}.Release|Any CPU.ActiveCfg = Release|Win32
+		{68C896B3-E485-454B-B270-3D026161A0A1}.Release|x64.ActiveCfg = Release|x64
+		{68C896B3-E485-454B-B270-3D026161A0A1}.Release|x64.Build.0 = Release|x64
+		{68C896B3-E485-454B-B270-3D026161A0A1}.Release|x86.ActiveCfg = Release|Win32
+		{68C896B3-E485-454B-B270-3D026161A0A1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
