@@ -8,6 +8,11 @@ Developed by Ollie Whitehouse, ollie dot whitehouse at nccgroup dot com
 Released under AGPL see LICENSE for more information
 */
 
+
+//
+// Inspired by https://github.com/thefLink/Hunt-Sleeping-Beacons/blob/main/Hunt-Sleeping-Beacons.c
+//
+
 // Includes
 #include "stdafx.h"
 
