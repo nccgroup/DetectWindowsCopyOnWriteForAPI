@@ -28,16 +28,17 @@ Example of it running showing a suspicious call stack
 [i] [25852][6452][MEMGUARD.exe] Frame 3 - 0x00007FFF5DF62651 -> C:\WINDOWS\SYSTEM32\ntdll.dll.RtlUserThreadStart
 [i] [25852][6452][MEMGUARD.exe] -----
 ``` 
-The above was produced this with code:
+The above was produced with by this code:
 ```
 
     LPVOID myMalHandler = NULL;
-    // Allocate some memory
     myMalHandler = VirtualAlloc(NULL, 1000, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
     memset(myMalHandler, 0xcc, 1000);
     HANDLE hHal = AddVectoredExceptionHandler(false, (PVECTORED_EXCEPTION_HANDLER)myMalHandler);
 ```
-Then causing an exception. In an unscientific sample set of one host searching for the output `. ??` in the result we only saw the following - one of which was the test case:
+Then causing an exception. 
+
+In an unscientific sample set of one host searching for the output `. ??` in the result we only saw the following - one of which was the test case:
 ```
 [i] [5516][7280][cb.exe] Frame 0 - 0x00007FF74E50EF77 -> C:\WINDOWS\CarbonBlack\cb.exe. ??  
 [i] [5516][7280][cb.exe] Frame 1 - 0x00007FF74E50FC51 -> C:\WINDOWS\CarbonBlack\cb.exe. ??  
