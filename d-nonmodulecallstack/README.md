@@ -39,8 +39,31 @@ The above was produced this with code:
 ```
 Then causing an exception. In an unscientific sample set of one host searching for the output `. ??` in the result we only saw the following - one of which was the test case:
 ```
-	Line 4165: [i] [5516][7280][cb.exe] Frame 0 - 0x00007FF74E50EF77 -> C:\WINDOWS\CarbonBlack\cb.exe. ??  
-	Line 4166: [i] [5516][7280][cb.exe] Frame 1 - 0x00007FF74E50FC51 -> C:\WINDOWS\CarbonBlack\cb.exe. ??  
-	Line 4167: [i] [5516][7280][cb.exe] Frame 2 - 0x00007FF74E4A1AA2 -> C:\WINDOWS\CarbonBlack\cb.exe. ??  
-	Line 27055: [i] [24212][21104][MEMGUARD.exe] Frame 0 - 0x000002CF87690000 -> . ??  
-	```
+[i] [5516][7280][cb.exe] Frame 0 - 0x00007FF74E50EF77 -> C:\WINDOWS\CarbonBlack\cb.exe. ??  
+[i] [5516][7280][cb.exe] Frame 1 - 0x00007FF74E50FC51 -> C:\WINDOWS\CarbonBlack\cb.exe. ??  
+[i] [5516][7280][cb.exe] Frame 2 - 0x00007FF74E4A1AA2 -> C:\WINDOWS\CarbonBlack\cb.exe. ??  
+[i] [24212][21104][MEMGUARD.exe] Frame 0 - 0x000002CF87690000 -> . ??  
+```
+Example command line is below:
+```
+C:\Data\NCC\!Code\Git.Public\DetectWindowsCopyOnWriteForAPI\d-cow\x64\Release>d-nonmodulecallstack.exe | findstr /N /R /C:". ??"
+[!] [0][UNKNOWN] Failed to OpenProcess - 87
+[!] [4][UNKNOWN] Failed to OpenProcess - 5
+[!] [56][UNKNOWN] Failed to OpenProcess - 5
+[!] [108][UNKNOWN] Failed to OpenProcess - 5
+[!] [576][UNKNOWN] Failed to OpenProcess - 5
+[!] [868][UNKNOWN] Failed to OpenProcess - 5
+[!] [660][UNKNOWN] Failed to OpenProcess - 5
+[!] [856][UNKNOWN] Failed to OpenProcess - 5
+[!] [1040][UNKNOWN] Failed to OpenProcess - 5
+[!] [4016][UNKNOWN] Failed to OpenProcess - 5
+[!] [6608][UNKNOWN] Failed to OpenProcess - 5
+[!] [9996][UNKNOWN] Failed to OpenProcess - 5
+[!] [7468][UNKNOWN] Failed to OpenProcess - 5
+[!] [14732][UNKNOWN] Failed to OpenProcess - 5
+[!] [6676][UNKNOWN] Failed to OpenProcess - 5
+[!] [25616][UNKNOWN] Failed to OpenProcess - 5
+[!] [26024][UNKNOWN] Failed to OpenProcess - 5
+26126:[i] [24212][21104][MEMGUARD.exe] Frame 0 - 0x000002CF87690000 -> . ??
+[!] [23700][UNKNOWN] Failed to OpenProcess - 87
+```
