@@ -162,7 +162,7 @@ void AnalyzeProc(DWORD dwPID)
 
 
 	// Print the process name
-	// fwprintf(stdout, _TEXT("[i]  --> %s\n"), cProcess);
+	//fwprintf(stdout, _TEXT("[i]  --> %s\n"), cProcess);
 
 
 	// Now for each of the modules check that NTDLL is present
@@ -288,7 +288,6 @@ void EnumerateProcesses()
 
 	// Total nuber of process IDs
 	dwPIDS = dwRet / sizeof(DWORD);
-
 	//
 	// Test case
 	// Remote process patch
@@ -310,5 +309,7 @@ void EnumerateProcesses()
 		//fwprintf(stdout, _TEXT("[i] Analyzing PID %d\n"), dwPIDArray[intCount]);
 		AnalyzeProc(dwPIDArray[intCount]);
 	}
+
+	fwprintf(stdout, _TEXT("[i] Total of %d processes %d didn't open  \n"), dwPIDS, dwCountError);
 
 }
