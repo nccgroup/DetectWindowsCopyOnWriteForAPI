@@ -36,6 +36,9 @@ NTQUERYINFOMATIONTHREAD myNtQueryInformationThread = (NTQUERYINFOMATIONTHREAD)Ge
 typedef BOOL(WINAPI* LPFN_ISWOW64PROCESS) (HANDLE, PBOOL);
 LPFN_ISWOW64PROCESS fnIsWow64Process = fnIsWow64Process = (LPFN_ISWOW64PROCESS)GetProcAddress(GetModuleHandle(TEXT("kernel32")), "IsWow64Process");
 
+// Libs
+#pragma comment(lib, "DbgHelp.lib") 
+
 // Structures to hold process information
 #pragma pack(push, 1)
 struct procNfoStuct {
@@ -44,9 +47,9 @@ struct procNfoStuct {
 	unsigned long long TotalExecMem = 0;
 };
 #pragma pack(pop)
+
 procNfoStuct Procs[4098];
 DWORD NumOfProcs = 0;
-
 
 //
 // Function	: SetDebugPrivilege
@@ -143,6 +146,47 @@ BOOL GetModuleNameFromAddress(HANDLE hProcess, PVOID pvPoint, TCHAR* modName) {
 
 	}
 	return FALSE;
+}
+
+BOOL GetModuleNameandFunFromAddress(HANDLE hProcess, PVOID pvPoint, TCHAR* modName, DWORD dwSize) {
+	STACKFRAME64 stackFrame = { 0x00 };
+	IMAGEHLP_MODULE64* ptrModinfo = NULL;
+	IMAGEHLP_SYMBOL64* ptrSymbol = NULL;
+	DWORD64 dwDisplacement = 0;
+	char strSymName[1024] = { 0x00 };
+
+	ptrSymbol = (IMAGEHLP_SYMBOL64*)VirtualAlloc(0, sizeof(IMAGEHLP_SYMBOL64) + 1024 * sizeof(TCHAR), MEM_COMMIT, PAGE_READWRITE);
+	ptrSymbol->SizeOfStruct = sizeof(IMAGEHLP_SYMBOL64) + 1024;
+	ptrSymbol->MaxNameLength = 1024;
+
+	ptrModinfo = (IMAGEHLP_MODULE64*)VirtualAlloc(0, sizeof(IMAGEHLP_MODULE64) + 1024 * sizeof(TCHAR), MEM_COMMIT, PAGE_READWRITE);
+	ptrModinfo->SizeOfStruct = sizeof(IMAGEHLP_MODULE64) + 1024;
+
+	SymInitialize(hProcess, NULL, TRUE);
+	SymRefreshModuleList(hProcess);
+	SymGetModuleInfo64(hProcess, (ULONG64)pvPoint, ptrModinfo);
+	SymGetSymFromAddr64(hProcess, (ULONG64)pvPoint, &dwDisplacement, ptrSymbol);
+	memset(strSymName, 0x00, 1024);
+	memset(modName, 0x00, dwSize*sizeof(TCHAR));
+	
+	DWORD dwRes = UnDecorateSymbolName(ptrSymbol->Name, strSymName, 1024, UNDNAME_COMPLETE);
+	if (dwRes == 0 || dwRes == 4) { // Absolute filth
+		sprintf_s(strSymName, "%s", "UnknownFunction");
+	}
+
+	if (ptrModinfo->ImageName == NULL || strlen(ptrModinfo->ImageName) == 0) {
+		_stprintf_s(modName, dwSize, _TEXT("%S->%S"), "UnknownModule", strSymName);
+	}
+	else {
+		_stprintf_s(modName, dwSize, _TEXT("%S->%S"), ptrModinfo->ImageName, strSymName);
+	}
+	
+	//_ftprintf(stdout, _TEXT("%S->%S\n"), ptrModinfo->ImageName, strSymName);
+	
+	//swprintf_s(modName, 40, _TEXT("%hs->%hs"), ptrModinfo->ImageName, strSymName);
+	
+
+	return TRUE;
 }
 
 /// <summary>
@@ -244,8 +288,15 @@ void AnalyzeProc(DWORD dwPID)
 							if (statRes == 0) {
 								TCHAR strModule[MAX_PATH*2];
 
+								/*
 								if (GetModuleNameFromAddress(hProcess, startAddress, strModule) == FALSE) {
 									_tcscpy_s(strModule, (MAX_PATH *2), _T("UNKNOWN"));
+									dwUnknown++;
+								}
+								*/
+								
+								if (GetModuleNameandFunFromAddress(hProcess, startAddress, strModule, (MAX_PATH * 2)) == FALSE) {
+									_tcscpy_s(strModule, (MAX_PATH * 2), _T("UNKNOWN"));
 									dwUnknown++;
 								}
 

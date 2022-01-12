@@ -22,6 +22,7 @@ Released under AGPL see LICENSE for more information
 #include <strsafe.h>
 #include <winevt.h> 
 #include <evntprov.h>
+#include <DbgHelp.h>
 
 //
 extern bool	bFirstRun;
