@@ -149,6 +149,7 @@ void AnalyzeProc(DWORD dwPID)
 		}
 
 		dwCountError++;
+		if (hProcess != NULL)CloseHandle(hProcess);
 		return;
 	}
 	dwMods = dwRet / sizeof(HMODULE);
