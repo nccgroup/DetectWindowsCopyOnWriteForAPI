@@ -176,9 +176,11 @@ BOOL GetModuleNameandFunFromAddress(HANDLE hProcess, PVOID pvPoint, TCHAR* modNa
 
 	if (ptrModinfo->ImageName == NULL || strlen(ptrModinfo->ImageName) == 0) {
 		_stprintf_s(modName, dwSize, _TEXT("%S->%S"), "UnknownModule", strSymName);
+		return FALSE;
 	}
 	else {
 		_stprintf_s(modName, dwSize, _TEXT("%S->%S"), ptrModinfo->ImageName, strSymName);
+		return TRUE;
 	}
 	
 	//_ftprintf(stdout, _TEXT("%S->%S\n"), ptrModinfo->ImageName, strSymName);
@@ -186,7 +188,7 @@ BOOL GetModuleNameandFunFromAddress(HANDLE hProcess, PVOID pvPoint, TCHAR* modNa
 	//swprintf_s(modName, 40, _TEXT("%hs->%hs"), ptrModinfo->ImageName, strSymName);
 	
 
-	return TRUE;
+	
 }
 
 /// <summary>
@@ -296,7 +298,6 @@ void AnalyzeProc(DWORD dwPID)
 								*/
 								
 								if (GetModuleNameandFunFromAddress(hProcess, startAddress, strModule, (MAX_PATH * 2)) == FALSE) {
-									_tcscpy_s(strModule, (MAX_PATH * 2), _T("UNKNOWN"));
 									dwUnknown++;
 								}
 
