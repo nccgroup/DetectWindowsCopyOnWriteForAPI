@@ -111,7 +111,7 @@ BOOL GetModuleNameFromAddress(HANDLE hProcess, PVOID pvPoint, TCHAR* modName) {
 			// Make sure the function is the expected range						
 			if (dwAddress > (DWORD64)modNFO.lpBaseOfDll && dwAddress < ((DWORD64)modNFO.lpBaseOfDll + modNFO.SizeOfImage)) {
 				//fwprintf(stdout, _TEXT("\n........................\n"));
-				_tcscpy_s(modName, MAX_PATH * sizeof(TCHAR), cModule);
+				_tcscpy_s(modName, MAX_PATH, cModule);
 				return TRUE;
 			}
 
@@ -291,28 +291,28 @@ void AnalyzeProc(DWORD dwPID)
 						DWORD dwDelta = dwSeconds - dwFirstSeconds;											
 
 						if (wReason == LoadReasonStaticDependency) {
-							_tcscpy_s(strReason, MAX_PATH * sizeof(TCHAR), _T("Static Dependency"));
+							_tcscpy_s(strReason, MAX_PATH, _T("Static Dependency"));
 						}
 						else if (wReason == LoadReasonStaticForwarderDependency) {
-							_tcscpy_s(strReason, MAX_PATH * sizeof(TCHAR), _T("Static Forwarder Dependency"));
+							_tcscpy_s(strReason, MAX_PATH, _T("Static Forwarder Dependency"));
 						}
 						else if (wReason == LoadReasonDynamicForwarderDependency) {
-							_tcscpy_s(strReason, MAX_PATH * sizeof(TCHAR), _T("Dynamic Forwarder Dependency"));
+							_tcscpy_s(strReason, MAX_PATH, _T("Dynamic Forwarder Dependency"));
 						}
 						else if (wReason == LoadReasonDelayloadDependency) {
-							_tcscpy_s(strReason, MAX_PATH * sizeof(TCHAR), _T("Delayload Dependency"));
+							_tcscpy_s(strReason, MAX_PATH, _T("Delayload Dependency"));
 						}
 						else if (wReason == LoadReasonDynamicLoad) {
-							_tcscpy_s(strReason, MAX_PATH * sizeof(TCHAR), _T("Dynamic Load"));
+							_tcscpy_s(strReason, MAX_PATH, _T("Dynamic Load"));
 						}
 						else if (wReason == LoadReasonAsImageLoad) {
-							_tcscpy_s(strReason, MAX_PATH * sizeof(TCHAR), _T("As Image Load"));
+							_tcscpy_s(strReason, MAX_PATH, _T("As Image Load"));
 						}
 						else if (wReason == LoadReasonAsDataLoad) {
-							_tcscpy_s(strReason, MAX_PATH * sizeof(TCHAR), _T("As Data Load"));
+							_tcscpy_s(strReason, MAX_PATH, _T("As Data Load"));
 						}
 						else {
-							_tcscpy_s(strReason, MAX_PATH * sizeof(TCHAR), _T("Unknown"));
+							_tcscpy_s(strReason, MAX_PATH, _T("Unknown"));
 						}
 
 						

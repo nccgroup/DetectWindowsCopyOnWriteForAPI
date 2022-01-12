@@ -116,7 +116,7 @@ BOOL GetModuleNameFromAddress(HANDLE hProcess, PVOID pvPoint, TCHAR* modName) {
 			// Make sure the function is the expected range						
 			if (dwAddress > (DWORD64)modNFO.lpBaseOfDll && dwAddress < ((DWORD64)modNFO.lpBaseOfDll + modNFO.SizeOfImage)) {
 				//fwprintf(stdout, _TEXT("\n........................\n"));
-				_tcscpy_s(modName, MAX_PATH * sizeof(TCHAR), cModule);
+				_tcscpy_s(modName, MAX_PATH, cModule);
 				return TRUE;
 			}
 
