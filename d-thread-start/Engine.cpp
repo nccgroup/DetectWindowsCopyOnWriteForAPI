@@ -300,7 +300,7 @@ void AnalyzeProc(DWORD dwPID)
 									dwUnknown++;
 								}
 
-								fwprintf(stdout, _TEXT("[i] [%d][%s] Start Address of Thread %llx in %s\n"), dwPID, cProcess, startAddress, strModule);
+								fwprintf(stdout, _TEXT("[i] [%d][%d][%s] Start Address of Thread %llx in %s\n"), dwPID, te.th32ThreadID, cProcess, startAddress, strModule);
 							}
 
 							CloseHandle(hThread);
