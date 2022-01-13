@@ -1,6 +1,6 @@
 Thread Starting Function Enumerator for Windows
 ======================
-Enumerates the address and which module the starting address of each thread points to. This will help detect when threat actors allocate memory for their payload and use that address as the start address to `CreateThread` or `CreateRemoteThrear` etc. 
+Enumerates the address and which module the starting address of each thread points to. This will help detect when threat actors allocate memory for their payload and use that address as the start address to `CreateThread` or `CreateRemoteThread` etc. 
 
 Example of it finding the result of CreateRemoteThread from memory:
 ```
